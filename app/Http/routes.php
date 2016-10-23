@@ -16,5 +16,8 @@ $app->get('/', function () use ($app) {
 });
 
 $app->group(['prefix' => 'api/v1/'], function () use ($app) {
-    $app->get('photos', 'App\Http\Controllers\PhotosController@index');
+    $app->get('photos/latitude/{latitude}/longitude/{longitude}', 'App\Http\Controllers\PhotosController@index');
+    $app->post('photos', 'App\Http\Controllers\PhotosController@create');
+    $app->put('photos/{photo_id}', 'App\Http\Controllers\PhotosController@update');
+    $app->delete('photos/{photo_id}', 'App\Http\Controllers\PhotosController@delete');
 });

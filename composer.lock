@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d89f77b3a3eb92a80721cae6ea5fdf55",
-    "content-hash": "3bbee0eb882fba009d9886d9d7f4b79e",
+    "hash": "e0d831f2033e653b3bc02e951408c285",
+    "content-hash": "4c093d11a5e99a8d8576cdb39614733c",
     "packages": [
         {
             "name": "doctrine/inflector",
@@ -1133,6 +1133,51 @@
             "time": "2016-09-18 15:39:12"
         },
         {
+            "name": "jeroendesloovere/distance",
+            "version": "1.0.2.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/jeroendesloovere/distance.git",
+                "reference": "c2fd9afa0c0958c3c9f476d7690a7e5bdc0ef474"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/jeroendesloovere/distance/zipball/c2fd9afa0c0958c3c9f476d7690a7e5bdc0ef474",
+                "reference": "c2fd9afa0c0958c3c9f476d7690a7e5bdc0ef474",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "JeroenDesloovere\\Distance\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jeroen Desloovere",
+                    "email": "info@jeroendesloovere.be",
+                    "homepage": "http://jeroendesloovere.be",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Get distance between two locations using PHP.",
+            "homepage": "https://github.com/jeroendesloovere/distance",
+            "keywords": [
+                "coordinates",
+                "distance",
+                "location",
+                "php"
+            ],
+            "time": "2015-05-20 15:13:07"
+        },
+        {
             "name": "laravel/lumen-framework",
             "version": "v5.3.1",
             "source": {
@@ -1429,16 +1474,16 @@
         },
         {
             "name": "paragonie/random_compat",
-            "version": "v2.0.2",
+            "version": "v2.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/paragonie/random_compat.git",
-                "reference": "088c04e2f261c33bed6ca5245491cfca69195ccf"
+                "reference": "c0125896dbb151380ab47e96c621741e79623beb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/088c04e2f261c33bed6ca5245491cfca69195ccf",
-                "reference": "088c04e2f261c33bed6ca5245491cfca69195ccf",
+                "url": "https://api.github.com/repos/paragonie/random_compat/zipball/c0125896dbb151380ab47e96c621741e79623beb",
+                "reference": "c0125896dbb151380ab47e96c621741e79623beb",
                 "shasum": ""
             },
             "require": {
@@ -1473,7 +1518,7 @@
                 "pseudorandom",
                 "random"
             ],
-            "time": "2016-04-03 06:00:07"
+            "time": "2016-10-17 15:23:22"
         },
         {
             "name": "psr/log",

@@ -9,7 +9,8 @@ class Photo extends Model
     protected $table = 'photos';
 
     protected $fillable = [
-        'location',
+        'latitude',
+        'longitude',
         'photo',
         'email'
     ];
