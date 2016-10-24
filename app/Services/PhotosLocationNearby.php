@@ -25,10 +25,13 @@ class PhotosLocationNearby
         $photos     = $this->photo->all();
         $photosNear = [];
 
+        $latitude   = $this->decodeCoordinates($latitude);
+        $longitude  = $this->decodeCoordinates($longitude);
+
         foreach ($photos as $photo) {
             $distance = $this->calculateDistance($latitude, $longitude, $photo->latitude, $photo->longitude);
 
-            if ($distance > 5) {
+            if ($distance > 10) {
                 continue;
             }
 
@@ -48,5 +51,14 @@ class PhotosLocationNearby
     private function calculateDistance($latitudeOrigin, $longitudeOrigin, $latitudeDestiny, $longitudeDestiny)
     {
         return Distance::between($latitudeOrigin, $longitudeOrigin, $latitudeDestiny, $longitudeDestiny);
+    }
+
+    /**
+     * @param $coordinate
+     * @return mixed
+     */
+    private function decodeCoordinates($coordinate)
+    {
+        return str_replace("&", ".", $coordinate);
     }
 }
