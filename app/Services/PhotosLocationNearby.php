@@ -16,17 +16,14 @@ class PhotosLocationNearby
     }
 
     /**
-     * @param $latitude
-     * @param $longitude
-     * @return array|Model
+     * @param   $latitude
+     * @param   $longitude
+     * @return  array|Model
      */
     public function getNearLocationPhotos($latitude, $longitude)
     {
-        $photos     = $this->photo->all();
+        $photos     = $this->photo->all(['id', 'photo', 'latitude', 'longitude']);
         $photosNear = [];
-
-        $latitude   = $this->decodeCoordinates($latitude);
-        $longitude  = $this->decodeCoordinates($longitude);
 
         foreach ($photos as $photo) {
             $distance = $this->calculateDistance($latitude, $longitude, $photo->latitude, $photo->longitude);
@@ -35,7 +32,10 @@ class PhotosLocationNearby
                 continue;
             }
 
-            $photosNear[] = $photo;
+            $photosNear['fotos'][] = [
+                'id'    => $photo->id,
+                'url'   => $photo->photo
+            ];
         }
 
         return $photosNear;
@@ -59,6 +59,6 @@ class PhotosLocationNearby
      */
     private function decodeCoordinates($coordinate)
     {
-        return str_replace("&", ".", $coordinate);
+        return $coordinate;
     }
 }

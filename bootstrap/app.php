@@ -1,9 +1,9 @@
 <?php
 
-require_once __DIR__.'/../vendor/autoload.php';
+require_once __DIR__ . '/../vendor/autoload.php';
 
 try {
-    (new Dotenv\Dotenv(__DIR__.'/../'))->load();
+    (new Dotenv\Dotenv(__DIR__ . '/../'))->load();
 } catch (Dotenv\Exception\InvalidPathException $e) {
     //
 }
@@ -20,7 +20,7 @@ try {
 */
 
 $app = new Laravel\Lumen\Application(
-    realpath(__DIR__.'/../')
+    realpath(__DIR__ . '/../')
 );
 
 // $app->withFacades();
@@ -59,13 +59,19 @@ $app->singleton(
 |
 */
 
-// $app->middleware([
-//    App\Http\Middleware\ExampleMiddleware::class
-// ]);
+ $app->middleware([
+    App\Http\Middleware\ExampleMiddleware::class,
+     Nord\Lumen\Cors\CorsMiddleware::class,
+ ]);
 
 // $app->routeMiddleware([
 //     'auth' => App\Http\Middleware\Authenticate::class,
 // ]);
+
+$app->routeMiddleware([
+//     App\Http\Middleware\LumenCors::class,
+    \Neomerx\CorsIlluminate\CorsMiddleware::class,
+]);
 
 /*
 |--------------------------------------------------------------------------
@@ -78,9 +84,13 @@ $app->singleton(
 |
 */
 
- $app->register(App\Providers\AppServiceProvider::class);
+$app->register(App\Providers\AppServiceProvider::class);
 // $app->register(App\Providers\AuthServiceProvider::class);
- $app->register(App\Providers\EventServiceProvider::class);
+$app->register(App\Providers\EventServiceProvider::class);
+$app->register(\Neomerx\CorsIlluminate\Providers\LumenServiceProvider::class);
+
+$app->register(Nord\Lumen\Cors\CorsServiceProvider::class);
+
 
 /*
 |--------------------------------------------------------------------------
@@ -94,7 +104,7 @@ $app->singleton(
 */
 
 $app->group(['namespace' => 'App\Http\Controllers'], function ($app) {
-    require __DIR__.'/../app/Http/routes.php';
+    require __DIR__ . '/../app/Http/routes.php';
 });
 
 return $app;
